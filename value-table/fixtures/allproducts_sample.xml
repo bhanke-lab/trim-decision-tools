@@ -1,0 +1,56 @@
+<Data>
+  <Board>
+    <instanceId>1</instanceId>
+    <name>4/4 x RandomW x RandomL +3" FAS OPT DEMO</name>
+    <thick>4/4</thick>
+    <width>RandomW</width>
+    <length>RandomL +3"</length>
+    <grade>FAS OPT</grade>
+    <volumePrice>1000.0</volumePrice>
+  </Board>
+  <Board>
+    <instanceId>2</instanceId>
+    <name>4/4 x RandomW x RandomL +3" 1COM OPT DEMO</name>
+    <thick>4/4</thick>
+    <width>RandomW</width>
+    <length>RandomL +3"</length>
+    <grade>1COM OPT</grade>
+    <volumePrice>820.0</volumePrice>
+  </Board>
+  <Board>
+    <instanceId>3</instanceId>
+    <name>4/4 x RandomW x RandomL +3" 2COM OPT DEMO</name>
+    <thick>4/4</thick>
+    <width>RandomW</width>
+    <length>RandomL +3"</length>
+    <grade>2COM OPT</grade>
+    <volumePrice>700.0</volumePrice>
+  </Board>
+  <Board>
+    <instanceId>4</instanceId>
+    <name>4/4 x RandomW x RandomL +3" 3ACOM OPT DEMO</name>
+    <thick>4/4</thick>
+    <width>RandomW</width>
+    <length>RandomL +3"</length>
+    <grade>3ACOM OPT</grade>
+    <volumePrice>360.0</volumePrice>
+  </Board>
+  <Board>
+    <instanceId>5</instanceId>
+    <name>5/4 x RandomW x RandomL +3" FAS OPT DEMO</name>
+    <thick>5/4</thick>
+    <width>RandomW</width>
+    <length>RandomL +3"</length>
+    <grade>FAS OPT</grade>
+    <volumePrice>1050.0</volumePrice>
+  </Board>
+  <Board>
+    <instanceId>6</instanceId>
+    <name>5/4 x RandomW x RandomL +3" 1COM OPT DEMO</name>
+    <thick>5/4</thick>
+    <width>RandomW</width>
+    <length>RandomL +3"</length>
+    <grade>1COM OPT</grade>
+    <volumePrice>860.0</volumePrice>
+  </Board>
+</Data>
