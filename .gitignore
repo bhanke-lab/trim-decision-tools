@@ -2,6 +2,7 @@
 ~$*.xlsx
 ~$*.xlsm
 *.tmp
+sample_*.csv
 
 # Local working copies of the workbook (rebuild from formulas instead)
 *.xlsx
