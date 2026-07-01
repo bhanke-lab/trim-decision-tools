@@ -1,13 +1,13 @@
 <p align="center">
-  <img src="docs/images/logo.png" alt="Trim Decision Tools" width="200">
+  <img src="docs/images/logo.png" alt="Trim Decision Tools" width="180">
 </p>
 
 <h1 align="center">Trim Decision Tools</h1>
 
-<p align="center">model the decision</p>
+<p align="center">price the trim, not the guess</p>
 
 <p align="center">
-  <img alt="stars" src="https://img.shields.io/github/stars/bhanke-lab/trim-decision-tools">
+  <img alt="commits" src="https://img.shields.io/github/commit-activity/t/bhanke-lab/trim-decision-tools?label=commits">
   <img alt="last commit" src="https://img.shields.io/github/last-commit/bhanke-lab/trim-decision-tools">
   <img alt="license" src="https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue">
 </p>
@@ -22,40 +22,91 @@
 
 ---
 
-Three tools that turn a Comact TrimExpert product export into pricing and trim
-decisions on a hardwood sawmill floor.
+Three tools that turn a Comact TrimExpert product export into pricing and trim decisions on a hardwood sawmill floor. The catalog fixture and every example price in this repo are synthetic. Real production pricing has been stripped.
 
-- **value-table/** - Pick a thickness and species; the workbook lists every
-  grade for that combo sorted by value, with $/MBF and per-board dollar value
-  across lengths 6 to 16. Includes length zones, an even/odd value lever
-  system, a Trim Impact Calculator, and a "Should You Trim This Board" helper.
-- **scalable-model/** - A Python generator. Reads a Comact TrimExpert AllProducts.xml
-  export, derives the real grade ladder for a species and thickness, and generates a
-  relative price-by-length grid plus the trim decision matrix.
-- **sim-comparison/** - Compares board-foot output between two trimmer simulations,
-  grade by grade and length by length, to value a pricing or trim-rule change.
+Excel workbooks are zipped binaries, so Git can't diff them. This repo ships the text the workbook is built from (spill formulas, the RESET Office Script, the Power Query loader, and a rebuild guide) instead of an .xlsx.
 
-## Why this repo has no .xlsx
+## Value Table
 
-Excel workbooks are zipped binaries, so Git cannot diff or version them in any
-useful way. Instead this repo ships the **text that the workbook is built from**:
-the spill formulas, the RESET Office Script, the Power Query loader, and a
-step-by-step rebuild guide. Build the workbook yourself from these and you get a
-clean, auditable history. A workbook-builder script is on the roadmap.
+Lookup and decision tool over a Comact TrimExpert export.
 
-## Sample data only
+### Sheets
 
-The catalog fixture and every example price in this repo are **synthetic**. Real
-production pricing has been stripped.
+| Sheet | Purpose | Visibility |
+|---|---|---|
+| Value Table | Original lookup; grade list auto-sorts by $/MBF, rest are plain formulas | Visible |
+| Lengths Value Table | Dynamic, spill-based; length zones and even/odd levers; hosts the trim helpers | Visible |
+| Lengths Value Table (Manual) | Same engine, even/odd block is hand-typeable | Visible |
+| RawData | Power Query dump, one row per Board record | Visible |
+| Helpers | Thickness decimals, species names, width and length tokens | Visible |
+| _Formulas_Backup / _LengthsBackup /_ManualBackup | Golden formula copies for RESET | Hidden |
 
-## Quick start
+### Rebuild steps
 
-1. Read `docs/math.md` for the one formula every dollar figure comes from.
-2. To build the lookup tool, follow `value-table/README.md`.
-3. To build the pricing engine, follow `scalable-model/README.md`.
+1. Export AllProducts.xml from TrimExpert, or use fixtures/allproducts_sample.xml.
+2. Load it via Power Query (see powerquery.m). Confirm the thick column is text.
+3. Build the Helpers sheet (thickness to decimal map, species list).
+4. Paste the anchor formulas from formulas.md into each tab.
+5. Create the three hidden backup sheets from clean copies of each live tab.
+6. Add a button and assign the Office Script in reset.ts.
+7. Add conditional formatting and the yellow input cells (B1/B2/B3).
 
-## Roadmap
+### Gotchas
 
-- [x] Python generator for the pricing model (scalable-model/trim_model.py).
-- [ ] Extend it to emit the value-table RawData.csv and build the workbook with
-      openpyxl (kills the "thickness read as a date" bug at the source).
+- Thickness must be text in RawData or every lookup returns blank.
+- Spill formulas need empty room below and right of the anchor, or you get #SPILL!. RESET clears the spill zones before restoring.
+- If you change a tab's formulas on purpose, update its backup or the next RESET reverts your change.
+- RESET runs as an Office Script in desktop Excel only, not Excel on the web.
+
+## Scalable Model
+
+A Python generator. It reads a Comact TrimExpert AllProducts.xml export and writes the pricing model and trim decision matrix for any species and thickness, using the grades that combo actually runs.
+
+Prices are relative (current $/MBF is outdated and being rebuilt). Decisions depend only on grade spacing and the even/odd lever, so relative structure is enough. Set real values later by editing each species' tiers.
+
+### Requirements
+
+Python 3.8 or newer, standard library only. No pip packages and no requirements.txt.
+
+### Run
+
+    python3 trim_model.py path/to/AllProducts.xml      # macOS / Linux
+    py trim_model.py path/to/AllProducts.xml           # Windows
+
+Name a species and thickness to target one combo, or omit them to auto-pick the combo with the most grades:
+
+    py trim_model.py path/to/AllProducts.xml TUL 4/4
+
+Writes a sample CSV and prints every species and thickness grade ladder.
+
+### Pipeline
+
+    AllProducts.xml -> per-species value ladder (tiers and ties) -> relative price grid -> decision matrix
+
+## Sim Comparison
+
+Compares board-foot output between two Comact trimmer simulation runs, grade by grade and length by length. Use it to value a pricing or trim-rule change before committing it to the optimizer.
+
+### What it answers
+
+- How does each sim's board-foot output per grade compare to the original (OG) run?
+- How much does each sim cut odd-length output, where a trim-to-even policy shows up?
+- Which sim wins on odd-length reduction without giving up grade?
+
+### How to use
+
+1. Run the same board sample through the Comact under the original setup and two candidate setups. Paste each run's grade totals and length mix into the two matrices.
+2. Pick two sims from the dropdowns.
+3. The compare blocks show each sim against OG: grade totals, per-length differences, and the odd-length reduction for each.
+
+### Blocks
+
+- Grade totals: each grade's board feet per run.
+- Value block: the board-foot difference between two chosen runs per grade, times a grade transfer price (GTP), summed to a dollar swing.
+- Length mix and compare: percent of output at each length per run, the difference vs OG, and the percent change.
+- Odd-length reduction: the 7, 9, 11 ft drop per run vs OG, as points, as a percent, and as board feet.
+- Top reduction: each run's single biggest odd-length cut.
+
+### Note
+
+This tool reads simulation output. It doesn't price boards itself. Pair it with the Scalable Model (the pricing policy) and the Value Table (the lookup).
