@@ -3,15 +3,15 @@
 <table width="100%">
   <tr>
     <td align="center" width="33%">
-      <img src="docs/images/value-table.png" alt="Value Table" width="90%"><br>
+      <img src="../docs/images/value-table.png" alt="Value Table" width="90%"><br>
       <sub><em>Plain value table visualization</em></sub>
     </td>
     <td align="center" width="33%">
-      <img src="docs/images/lengths-value-table.png" alt="Lengths Value Table" width="100%"><br>
+      <img src="../docs/images/lengths-value-table.png" alt="Lengths Value Table" width="100%"><br>
       <sub><em>Add length zones and even/odd levers</em></sub>
     </td>
     <td align="center" width="33%">
-      <img src="docs/images/manual-lengths-value-table.png" alt="Manual Lengths Value Table" width="100%"><br>
+      <img src="../docs/images/manual-lengths-value-table.png" alt="Manual Lengths Value Table" width="100%"><br>
       <sub><em>Add input for custom even/odd figures</em></sub>
     </td>
   </tr>
