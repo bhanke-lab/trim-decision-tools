@@ -22,7 +22,7 @@
 
 ---
 
-Three tools that turn a Comact TrimExpert product export into pricing and trim decisions on a hardwood sawmill floor. The catalog fixture and every example price in this repo are synthetic. Real production pricing has been stripped.
+Make the right trim decisions for a vertically integrated (forestry + mill + dry + distribution) hardwood operation. Dynamic value tables, Python pricing-model generator, and a simulation comparator.  The catalog fixture and every example price in this repo are synthetic. Real production pricing has been stripped.
 
 Excel workbooks are zipped binaries, so Git can't diff them. This repo ships the text the workbook is built from (spill formulas, the RESET Office Script, the Power Query loader, and a rebuild guide) instead of an .xlsx.
 
