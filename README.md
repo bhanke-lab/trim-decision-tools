@@ -1,3 +1,4 @@
+<p align="center"><img src="docs/images/logo.png" alt="Trim Decision Tools" width="120"></p>
 # trim-decision-tools
 
 Three tools that turn a Comact TrimExpert product export into pricing and trim
