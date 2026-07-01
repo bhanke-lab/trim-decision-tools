@@ -1,6 +1,26 @@
-# trim-decision-tools
+<p align="center">
+  <img src="docs/images/logo.png" alt="Trim Decision Tools" width="200">
+</p>
 
-<p align="center"><img src="docs/images/logo.png" alt="Trim Decision Tools" width="411"></p>
+<h1 align="center">Trim Decision Tools</h1>
+
+<p align="center">model the decision</p>
+
+<p align="center">
+  <img alt="stars" src="https://img.shields.io/github/stars/bhanke-lab/trim-decision-tools">
+  <img alt="last commit" src="https://img.shields.io/github/last-commit/bhanke-lab/trim-decision-tools">
+  <img alt="license" src="https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue">
+</p>
+
+<p align="center">
+  <a href="#value-table">Value Table</a> &bull;
+  <a href="#scalable-model">Scalable Model</a> &bull;
+  <a href="#sim-comparison">Sim Comparison</a> &bull;
+  <a href="docs/value-threshold-theory.md">Theory</a> &bull;
+  <a href="docs/species-rules.md">Species rules</a>
+</p>
+
+---
 
 Three tools that turn a Comact TrimExpert product export into pricing and trim
 decisions on a hardwood sawmill floor.
