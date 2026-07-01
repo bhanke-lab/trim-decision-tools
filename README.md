@@ -4,7 +4,7 @@
 
 <h1 align="center">Trim Decision Tools</h1>
 
-<p align="center">price the trim, not the guess</p>
+<p align="center">see the whole decision</p>
 
 <p align="center">
   <img alt="commits" src="https://img.shields.io/github/commit-activity/t/bhanke-lab/trim-decision-tools?label=commits">
@@ -28,6 +28,11 @@ Excel workbooks are zipped binaries, so Git can't diff them. This repo ships the
 
 ## Value Table
 
+<p align="left">
+  <img src="docs/images/value-table.png" alt="Trim Decision Tools" width="250">
+  <img src="docs/images/lengths-value-table.png" alt="Trim Decision Tools" width="250">
+  <img src="docs/images/manual-lengths-value-table.png" alt="Trim Decision Tools" width="250">
+</p>
 Lookup and decision tool over a Comact TrimExpert export.
 
 ### Sheets
@@ -60,6 +65,11 @@ Lookup and decision tool over a Comact TrimExpert export.
 
 ## Scalable Model
 
+<p align="center">
+  <img src="docs/images/trim-model-result.png" alt="Trim Decision Tools" width="350">
+  <img src="docs/images/trim-model-output.png" alt="Trim Decision Tools" width="350">
+</p>
+
 A Python generator. It reads a Comact TrimExpert AllProducts.xml export and writes the pricing model and trim decision matrix for any species and thickness, using the grades that combo actually runs.
 
 Prices are relative (current $/MBF is outdated and being rebuilt). Decisions depend only on grade spacing and the even/odd lever, so relative structure is enough. Set real values later by editing each species' tiers.
@@ -85,6 +95,9 @@ Writes a sample CSV and prints every species and thickness grade ladder.
 
 ## Sim Comparison
 
+<p align="center">
+  <img src="docs/images/sim-comparison.png" alt="Trim Decision Tools" width="400">
+</p>
 Compares board-foot output between two Comact trimmer simulation runs, grade by grade and length by length. Use it to value a pricing or trim-rule change before committing it to the optimizer.
 
 ### What it answers
