@@ -1,5 +1,18 @@
 # Scalable Pricing Model (Python)
 
+<table width="100%">
+  <tr>
+    <td align="center" width="50%">
+      <img src="docs/images/trim_model_result.png" alt="Trim model result" width="100%"><br>
+      <sub><em>Generated price grid and decision matrix for chosen species + thickness</em></sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="docs/images/trim_model_output.png" alt="Trim model output" width="100%"><br>
+      <sub><em>Resultant visualization of trim decisions from model</em></sub>
+    </td>
+  </tr>
+</table>
+
 Reads a Comact TrimExpert AllProducts.xml export and generates the pricing model and
 trim decision matrix for any species + thickness, using the grades that combo actually
 runs.

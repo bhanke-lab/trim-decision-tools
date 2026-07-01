@@ -1,5 +1,10 @@
 # Sim Comparison
 
+<p align="center">
+  <img src="docs/images/sim-comparison.png" alt="Sim Comparison" width="600"><br>
+  <sub><em>Variety of comparison metrics for 2 simulations with up to 10 stored</em></sub>
+</p>
+
 Compares board-foot output between two Comact trimmer simulation runs, grade by
 grade and length by length. Use it to value a pricing or trim-rule change before
 committing it to the optimizer.
