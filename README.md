@@ -29,9 +29,9 @@ Excel workbooks are zipped binaries, so Git can't diff them. This repo ships the
 ## Value Table
 
 <p align="left">
-  <img src="docs/images/value-table.png" alt="Trim Decision Tools" width="250">
-  <img src="docs/images/lengths-value-table.png" alt="Trim Decision Tools" width="250">
-  <img src="docs/images/manual-lengths-value-table.png" alt="Trim Decision Tools" width="250">
+  <img src="docs/images/value-table.png" alt="Basic Value Table" width="300">
+  <img src="docs/images/lengths-value-table.png" alt="Lengths Value Table" width="300">
+  <img src="docs/images/manual-lengths-value-table.png" alt="Manual Lengths Value Table" width="300">
 </p>
 Lookup and decision tool over a Comact TrimExpert export.
 
@@ -66,8 +66,8 @@ Lookup and decision tool over a Comact TrimExpert export.
 ## Scalable Model
 
 <p align="center">
-  <img src="docs/images/trim-model-result.png" alt="Trim Decision Tools" width="350">
-  <img src="docs/images/trim-model-output.png" alt="Trim Decision Tools" width="350">
+  <img src="docs\images\trim_model_result.png" alt="Trim Model Result" width="350">
+  <img src="docs\images\trim_model_output.png" alt="Trim Model Visual" width="350">
 </p>
 
 A Python generator. It reads a Comact TrimExpert AllProducts.xml export and writes the pricing model and trim decision matrix for any species and thickness, using the grades that combo actually runs.
