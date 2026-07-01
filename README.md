@@ -28,11 +28,23 @@ Excel workbooks are zipped binaries, so Git can't diff them. This repo ships the
 
 ## Value Table
 
-<p align="left">
-  <img src="docs/images/value-table.png" alt="Basic Value Table" width="300">
-  <img src="docs/images/lengths-value-table.png" alt="Lengths Value Table" width="300">
-  <img src="docs/images/manual-lengths-value-table.png" alt="Manual Lengths Value Table" width="300">
-</p>
+<table width="100%">
+  <tr>
+    <td align="center" width="33%">
+      <img src="docs/images/value-table.png" alt="Value Table" width="100%"><br>
+      <sub><em>Plain price lookup</em></sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/images/lengths-value-table.png" alt="Lengths Value Table" width="100%"><br>
+      <sub><em>Length zones and even/odd levers</em></sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/images/manual-lengths-value-table.png" alt="Manual Lengths Value Table" width="100%"><br>
+      <sub><em>Hand-typed even/odd figures</em></sub>
+    </td>
+  </tr>
+</table>
+
 Lookup and decision tool over a Comact TrimExpert export.
 
 ### Sheets
@@ -44,7 +56,7 @@ Lookup and decision tool over a Comact TrimExpert export.
 | Lengths Value Table (Manual) | Same engine, even/odd block is hand-typeable | Visible |
 | RawData | Power Query dump, one row per Board record | Visible |
 | Helpers | Thickness decimals, species names, width and length tokens | Visible |
-| _Formulas_Backup / _LengthsBackup /_ManualBackup | Golden formula copies for RESET | Hidden |
+| _Formulas_Backup / _LengthsBackup / _ManualBackup | Golden formula copies for RESET | Hidden |
 
 ### Rebuild steps
 
@@ -65,10 +77,18 @@ Lookup and decision tool over a Comact TrimExpert export.
 
 ## Scalable Model
 
-<p align="center">
-  <img src="docs\images\trim_model_result.png" alt="Trim Model Result" width="350">
-  <img src="docs\images\trim_model_output.png" alt="Trim Model Visual" width="350">
-</p>
+<table width="100%">
+  <tr>
+    <td align="center" width="50%">
+      <img src="docs/images/trim_model_result.png" alt="Trim model result" width="100%"><br>
+      <sub><em>Generated price grid and decision matrix</em></sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="docs/images/trim_model_output.png" alt="Trim model output" width="100%"><br>
+      <sub><em>Terminal output for the chosen combo</em></sub>
+    </td>
+  </tr>
+</table>
 
 A Python generator. It reads a Comact TrimExpert AllProducts.xml export and writes the pricing model and trim decision matrix for any species and thickness, using the grades that combo actually runs.
 
@@ -96,8 +116,10 @@ Writes a sample CSV and prints every species and thickness grade ladder.
 ## Sim Comparison
 
 <p align="center">
-  <img src="docs/images/sim-comparison.png" alt="Trim Decision Tools" width="400">
+  <img src="docs/images/sim-comparison.png" alt="Sim Comparison" width="600"><br>
+  <sub><em>Two runs compared grade by grade and length by length</em></sub>
 </p>
+
 Compares board-foot output between two Comact trimmer simulation runs, grade by grade and length by length. Use it to value a pricing or trim-rule change before committing it to the optimizer.
 
 ### What it answers
